@@ -139,7 +139,7 @@ class PageGroupController extends Controller
         }
 
         $this->validate($request, [
-            'name' => 'required:45|unique:groups',
+            'name' => 'required:45',
             'home' => 'numeric',
             'menu' => 'array',
             'create' => 'array',
@@ -162,30 +162,36 @@ class PageGroupController extends Controller
         }
 
         $group = new \App\Group;
-        $group->name = $request->name;
-        $group->home_id = $home;
-
-        $Grant = null;
-        $grant = \Auth::user()->grant;
-        $subGrant = \App\Group::where('grant', 'LIKE', $grant . '%')->get();
-        if ($subGrant->count() == 1) { // only it self
-            $Grant = $grant . ',1';
-            $group->grant = $Grant;
+        if ( \App\Group::where('name', $request->name)->get()->count() == 1){
+            $group = \App\Group::where('name', $request->name)->get()->first();
+            $result = 1;
+            $Grant = $group->grant;
         } else {
-            $max = 0;
-            $subGrant = $subGrant->pluck(['grant']);
-            foreach ($subGrant as $subG) {
-                $subG = explode(',', $subG);
-                $num = (int)$subG[count($subG) - 1];
-                $max = $num > $max ? $num : $max;
+            $group->name = $request->name;
+            $group->home_id = $home;
+
+            $Grant = null;
+            $grant = \Auth::user()->grant;
+            $subGrant = \App\Group::where('grant', 'LIKE', $grant . '%')->get();
+            if ($subGrant->count() == 1) { // only it self
+                $Grant = $grant . ',1';
+                $group->grant = $Grant;
+            } else {
+                $max = 0;
+                $subGrant = $subGrant->pluck(['grant']);
+                foreach ($subGrant as $subG) {
+                    $subG = explode(',', $subG);
+                    $num = (int)$subG[count($subG) - 1];
+                    $max = $num > $max ? $num : $max;
+                }
+                $Grant = $grant . ',' . ++$max;
+                $group->grant = $Grant;
             }
-            $Grant = $grant . ',' . ++$max;
-            $group->grant = $Grant;
+
+            $result = $group->save();
         }
 
-        $result = $group->save();
-
-        $group->menus()->sync($request->menu);
+        $group->menus()->syncWithoutDetaching($request->menu);
 
         $i = 0;
         $permissions = array();

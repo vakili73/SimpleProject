@@ -40,10 +40,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/group/delete', 'PageGroupController@postDelete');
     Route::post('/group/update', 'PageGroupController@postUpdate');
 
-    // Route::get('/truck', 'PageTruckController@getIndex');
-    // Route::post('/truck/create', 'PageTruckController@postCreate');
-    // Route::post('/truck/delete', 'PageTruckController@postDelete');
-    // Route::post('/truck/update', 'PageTruckController@postUpdate');
+    Route::get('/grtvss', 'PageGrtvssController@getIndex');
+    Route::post('/grtvss/create', 'PageGrtvssController@postCreate');
+    Route::post('/grtvss/delete', 'PageGrtvssController@postDelete');
+    Route::post('/grtvss/update', 'PageGrtvssController@postUpdate');
+
+    Route::get('/grvss', 'PageGrvssController@getIndex');
+    Route::post('/grvss/create', 'PageGrvssController@postCreate');
+    Route::post('/grvss/delete', 'PageGrvssController@postDelete');
+    Route::post('/grvss/update', 'PageGrvssController@postUpdate');
+
+    Route::get('/grvkl', 'PageGrvklController@getIndex');
+    Route::post('/grvkl/create', 'PageGrvklController@postCreate');
+    Route::post('/grvkl/delete', 'PageGrvklController@postDelete');
+    Route::post('/grvkl/update', 'PageGrvklController@postUpdate');
+
+    Route::get('/gsvbb', 'PageGsvbbController@getIndex');
+    Route::post('/gsvbb/create', 'PageGsvbbController@postCreate');
+    Route::post('/gsvbb/delete', 'PageGsvbbController@postDelete');
+    Route::post('/gsvbb/update', 'PageGsvbbController@postUpdate');
 
     // Route::get('/company', 'PageCompanyController@getIndex');
     // Route::post('/company/create', 'PageCompanyController@postCreate');
