@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gsvbb_mmr extends Model {
+class Grtb_mm extends Model {
 
     /**
      * The attributes that are mass assignable.
@@ -13,13 +13,9 @@ class Gsvbb_mmr extends Model {
      */
     protected $fillable = [
         'datetime',
-        'msh',
-        'mt',
-        'rl',
-        'apm',
-        'nh',
-        'makd',
-        'n',
+        't',
+        'c',
+        'v',
         'description',
     ];
 

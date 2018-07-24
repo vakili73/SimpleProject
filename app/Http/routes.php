@@ -60,6 +60,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/gsvbb/delete', 'PageGsvbbController@postDelete');
     Route::post('/gsvbb/update', 'PageGsvbbController@postUpdate');
 
+    Route::get('/gsvp', 'PageGsvpController@getIndex');
+    Route::post('/gsvp/create', 'PageGsvpController@postCreate');
+    Route::post('/gsvp/delete', 'PageGsvpController@postDelete');
+    Route::post('/gsvp/update', 'PageGsvpController@postUpdate');
+
+    Route::get('/grtb', 'PageGrtbController@getIndex');
+    Route::post('/grtb/create', 'PageGrtbController@postCreate');
+    Route::post('/grtb/delete', 'PageGrtbController@postDelete');
+    Route::post('/grtb/update', 'PageGrtbController@postUpdate');
+
     // Route::get('/company', 'PageCompanyController@getIndex');
     // Route::post('/company/create', 'PageCompanyController@postCreate');
     // Route::post('/company/delete', 'PageCompanyController@postDelete');

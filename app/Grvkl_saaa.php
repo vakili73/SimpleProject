@@ -26,6 +26,6 @@ class Grvkl_saaa extends Model {
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
     
 }
