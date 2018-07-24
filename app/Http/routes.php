@@ -79,6 +79,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/report/grtb', 'ReportGrtbController@getIndex');
     Route::post('/report/grtb', 'ReportGrtbController@postIndex');
 
+    Route::get('/report/grtvss', 'ReportGrtvssController@getIndex');
+    Route::post('/report/grtvss', 'ReportGrtvssController@postIndex');
+
+    Route::get('/report/grvkl', 'ReportGrvklController@getIndex');
+    Route::post('/report/grvkl', 'ReportGrvklController@postIndex');
+
+    Route::get('/report/grvss', 'ReportGrvssController@getIndex');
+    Route::post('/report/grvss', 'ReportGrvssController@postIndex');
+
+    Route::get('/report/gsvbb', 'ReportGsvbbController@getIndex');
+    Route::post('/report/gsvbb', 'ReportGsvbbController@postIndex');
+
+    Route::get('/report/gsvp', 'ReportGsvpController@getIndex');
+    Route::post('/report/gsvp', 'ReportGsvpController@postIndex');
+
     // Route::get('/report/periodic', 'ReportPeriodicController@getIndex');
     // Route::post('/report/periodic', 'ReportPeriodicController@postIndex');
 
