@@ -51,26 +51,8 @@ UNLOCK TABLES;
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-INSERT INTO `menus` VALUES (1,'user','مدیریت کاربران','user'),(2,'group','گروه های کاربری','users');
+INSERT INTO `menus` VALUES (1,'user','مدیریت کاربران','user'),(2,'group','گروه های کاربری','users'),(3,'grtvss','ث.گ.ر توقفات و.س.ش','file-text'),(4,'grvss','ث.گ.ر واحد س.ش','file-text'),(5,'grvkl','ث.گ.ر واحد خط لعاب','file-text'),(6,'gsvbb','ث.گ شیفت واحد ب.ب','file-text'),(7,'gsvp','ث.گ شیفت واحد پرس','file-text'),(8,'grtb','ث.گ.ر تهیه بدنه','file-text'),(9,'report/grtb','گ.گ.ر تهیه بدنه','file-excel-o'),(10,'report/grtvss','گ.گ.ر توقفات و.س.ش','file-excel-o'),(11,'report/grvss','گ.گ.ر واحد س.ش','file-excel-o'),(12,'report/gsvbb','گ.گ شیفت واحد ب.ب','file-excel-o'),(13,'report/gsvp','گ.گ شیفت واحد پرس','file-excel-o');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `password_resets`
---
-
-LOCK TABLES `password_resets` WRITE;
-/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
-/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `permissions`
---
-
-LOCK TABLES `permissions` WRITE;
-/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -79,7 +61,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'SuperAdmin','مدیر ارشد ','سیستم','0',1,NULL,'$2y$10$iJEXW7x2L6rnQT/3VpT2Tee5OE1FTm3uJp65EigMzUd1pG2159tiW','کارشناس نرم افزار','yQsiJmxVXzHUnkqhDZCvU69q4X1mxA7Ja9N7R3TpAnegiW1m1HB13LviSfhD','2016-08-02 06:28:11','2018-06-23 01:21:50');
+INSERT INTO `users` VALUES (1,1,'SuperAdmin','مدیر ارشد ','سیستم','0',1,NULL,'$2y$10$iJEXW7x2L6rnQT/3VpT2Tee5OE1FTm3uJp65EigMzUd1pG2159tiW','کارشناس نرم افزار','yLHm3Rocw2WqlUmC9nVpOrz2T3u9QOjrkcOw6jTF4Ztbiygs4hofuB3TJvgG','2016-08-02 06:28:11','2018-07-24 21:13:44');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -92,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-23  1:31:08
+-- Dump completed on 2018-07-24 21:22:28
