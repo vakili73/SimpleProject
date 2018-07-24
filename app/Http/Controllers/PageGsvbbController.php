@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -328,7 +329,7 @@ class PageGsvbbController extends Controller
         if($request->action == 'create_snsn'){
 
             $gsvbb_snsn = new \App\Gsvbb_snsn;
-            $gsvbb_snsn->datetime = $request->datetime;
+            $gsvbb_snsn->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvbb_snsn->shk = $request->shk;
             $gsvbb_snsn->nkr = $request->nkr;
             $gsvbb_snsn->s = $request->s;
@@ -357,7 +358,7 @@ class PageGsvbbController extends Controller
         } else if ($request->action == 'create_sat'){
 
             $gsvbb_sat = new \App\Gsvbb_sat;
-            $gsvbb_sat->datetime = $request->datetime;
+            $gsvbb_sat->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvbb_sat->shk = $request->shk;
             $gsvbb_sat->kt = $request->kt;
             $gsvbb_sat->khn = $request->khn;
@@ -385,7 +386,7 @@ class PageGsvbbController extends Controller
         } else if ($request->action == 'create_mmr'){
 
             $gsvbb_mmr = new \App\Gsvbb_mmr;
-            $gsvbb_mmr->datetime = $request->datetime;
+            $gsvbb_mmr->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvbb_mmr->msh = $request->msh;
             $gsvbb_mmr->mt = $request->mt;
             $gsvbb_mmr->rl = $request->rl;
@@ -438,7 +439,7 @@ class PageGsvbbController extends Controller
         if ($request->action == 'update_snsn'){
             $result = \App\Gsvbb_snsn::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shk' => $request->shk,
                     'nkr' => $request->nkr,
                     's' => $request->s,
@@ -463,7 +464,7 @@ class PageGsvbbController extends Controller
         } else if ($request->action == 'update_sat'){
             $result = \App\Gsvbb_sat::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shk' => $request->shk,
                     'kt' => $request->kt,
                     'khn' => $request->khn,
@@ -487,7 +488,7 @@ class PageGsvbbController extends Controller
         } else if ($request->action == 'update_mmr'){
             $result = \App\Gsvbb_mmr::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'msh' => $request->msh,
                     'mt' => $request->mt,
                     'rl' => $request->rl,

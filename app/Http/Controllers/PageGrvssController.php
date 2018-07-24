@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -149,7 +150,7 @@ class PageGrvssController extends Controller
             ]);
     
             $grvss_sks = new \App\Grvss_sks;
-            $grvss_sks->datetime = $request->datetime;
+            $grvss_sks->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grvss_sks->shift = $request->shift;
             $grvss_sks->kf = $request->kf;
             $grvss_sks->sshk = $request->sshk;
@@ -166,7 +167,7 @@ class PageGrvssController extends Controller
             ]);
     
             $grvss_mksp = new \App\Grvss_mksp;
-            $grvss_mksp->datetime = $request->datetime;
+            $grvss_mksp->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grvss_mksp->sh = $request->sh;
             $grvss_mksp->m = $request->m;
             $grvss_mksp->description = $request->description;
@@ -215,7 +216,7 @@ class PageGrvssController extends Controller
     
             $result = \App\Grvss_sks::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shift' => $request->shift,
                     'kf' => $request->kf,
                     'sshk' => $request->sshk,
@@ -225,7 +226,7 @@ class PageGrvssController extends Controller
         } else if ($request->action == 'update_mksp'){
             $result = \App\Grvss_mksp::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'sh' => $request->sh,
                     'm' => $request->m,
                     'description' => $request->description,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -244,7 +245,7 @@ class PageGrtbController extends Controller
         if($request->action == 'create_stk'){
 
             $grtb_stk = new \App\Grtb_stk;
-            $grtb_stk->datetime = $request->datetime;
+            $grtb_stk->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grtb_stk->shb = $request->shb;
             $grtb_stk->tsh = $request->tsh;
             $grtb_stk->kf = $request->kf;
@@ -266,7 +267,7 @@ class PageGrtbController extends Controller
         } else if ($request->action == 'create_ka'){
 
             $grtb_ka = new \App\Grtb_ka;
-            $grtb_ka->datetime = $request->datetime;
+            $grtb_ka->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grtb_ka->ka = $request->ka;
             $grtb_ka->shift = $request->shift;
             $grtb_ka->kf = $request->kf;
@@ -284,7 +285,7 @@ class PageGrtbController extends Controller
         } else if ($request->action == 'create_mm'){
 
             $grtb_mm = new \App\Grtb_mm;
-            $grtb_mm->datetime = $request->datetime;
+            $grtb_mm->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grtb_mm->t = $request->t;
             $grtb_mm->c = $request->c;
             $grtb_mm->v = $request->v;
@@ -333,7 +334,7 @@ class PageGrtbController extends Controller
         if ($request->action == 'update_stk'){
             $result = \App\Grtb_stk::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shb' => $request->shb,
                     'tsh' => $request->tsh,
                     'kf' => $request->kf,
@@ -351,7 +352,7 @@ class PageGrtbController extends Controller
         } else if ($request->action == 'update_ka'){
             $result = \App\Grtb_ka::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'ka' => $request->ka,
                     'shift' => $request->shift,
                     'kf' => $request->kf,
@@ -365,7 +366,7 @@ class PageGrtbController extends Controller
         } else if ($request->action == 'update_mm'){
             $result = \App\Grtb_mm::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     't' => $request->t,
                     'c' => $request->c,
                     'v' => $request->v,

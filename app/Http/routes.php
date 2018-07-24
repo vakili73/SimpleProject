@@ -76,8 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::post('/company/update', 'PageCompanyController@postUpdate');
 
     // Define Menu Report Routine
-    // Route::get('/report/complete', 'ReportCompleteController@getIndex');
-    // Route::post('/report/complete', 'ReportCompleteController@postIndex');
+    Route::get('/report/grtb', 'ReportGrtbController@getIndex');
+    Route::post('/report/grtb', 'ReportGrtbController@postIndex');
 
     // Route::get('/report/periodic', 'ReportPeriodicController@getIndex');
     // Route::post('/report/periodic', 'ReportPeriodicController@postIndex');

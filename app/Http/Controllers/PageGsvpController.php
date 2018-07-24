@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -310,7 +311,7 @@ class PageGsvpController extends Controller
         if($request->action == 'create_sssn'){
 
             $gsvp_sssn = new \App\Gsvp_sssn;
-            $gsvp_sssn->datetime = $request->datetime;
+            $gsvp_sssn->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvp_sssn->shp = $request->shp;
             $gsvp_sssn->s = $request->s;
             $gsvp_sssn->sp = $request->sp;
@@ -329,7 +330,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'create_snft'){
 
             $gsvp_snft = new \App\Gsvp_snft;
-            $gsvp_snft->datetime = $request->datetime;
+            $gsvp_snft->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvp_snft->shk = $request->shk;
             $gsvp_snft->np = $request->np;
             $gsvp_snft->fg = $request->fg;
@@ -351,7 +352,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'create_stt'){
 
             $gsvp_stt = new \App\Gsvp_stt;
-            $gsvp_stt->datetime = $request->datetime;
+            $gsvp_stt->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $gsvp_stt->shk = $request->shk;
             $gsvp_stt->b = $request->b;
             $gsvp_stt->a = $request->a;
@@ -369,7 +370,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'create_hma'){
 
         $gsvp_hma = new \App\Gsvp_hma;
-        $gsvp_hma->datetime = $request->datetime;
+        $gsvp_hma->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
         $gsvp_hma->h = $request->h;
         $gsvp_hma->aa = $request->aa;
         $gsvp_hma->ts = $request->ts;
@@ -422,7 +423,7 @@ class PageGsvpController extends Controller
             
             $result = \App\Gsvp_sssn::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shp' => $request->shp,
                     's' => $request->s,
                     'sp' => $request->sp,
@@ -437,7 +438,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'update_snft'){
             $result = \App\Gsvp_snft::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shk' => $request->shk,
                     'np' => $request->np,
                     'fg' => $request->fg,
@@ -455,7 +456,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'update_stt'){
             $result = \App\Gsvp_stt::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shk' => $request->shk,
                     'b' => $request->b,
                     'a' => $request->a,
@@ -469,7 +470,7 @@ class PageGsvpController extends Controller
         } else if ($request->action == 'update_hma'){
             $result = \App\Gsvp_hma::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'h' => $request->h,
                     'aa' => $request->aa,
                     'ts' => $request->ts,

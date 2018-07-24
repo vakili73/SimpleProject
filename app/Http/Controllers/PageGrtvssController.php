@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -143,7 +144,7 @@ class PageGrtvssController extends Controller
         ]);
 
         $grtvss = new \App\Grtvss_sktn;
-        $grtvss->datetime = $request->datetime;
+        $grtvss->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
         $grtvss->shift = $request->shift;
         $grtvss->khbnvn = $request->khbnvn;
         $grtvss->khbsngsf = $request->khbsngsf;
@@ -192,7 +193,7 @@ class PageGrtvssController extends Controller
 
         $result = \App\Grtvss_sktn::where('id', $request->old_id)
             ->update([
-                'datetime' => $request->datetime,
+                'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                 'shift' => $request->shift,
                 'khbnvn' => $request->khbnvn,
                 'khbsngsf' => $request->khbsngsf,

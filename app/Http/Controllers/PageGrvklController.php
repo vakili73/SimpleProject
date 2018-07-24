@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Libraries\LibFilter;
+use App\Http\Libraries\GregorianDateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -326,7 +327,7 @@ class PageGrvklController extends Controller
             ]);
     
             $grvkl_sssn = new \App\Grvkl_sssn;
-            $grvkl_sssn->datetime = $request->datetime;
+            $grvkl_sssn->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grvkl_sssn->shift = $request->shift;
             $grvkl_sssn->shk = $request->shk;
             $grvkl_sssn->s = $request->s;
@@ -350,7 +351,7 @@ class PageGrvklController extends Controller
             ]);
     
             $grvkl_sskk = new \App\Grvkl_sskk;
-            $grvkl_sskk->datetime = $request->datetime;
+            $grvkl_sskk->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grvkl_sskk->shift = $request->shift;
             $grvkl_sskk->shk = $request->shk;
             $grvkl_sskk->kvk = $request->kvk;
@@ -382,7 +383,7 @@ class PageGrvklController extends Controller
             ]);
     
             $grvkl_saaa = new \App\Grvkl_saaa;
-            $grvkl_saaa->datetime = $request->datetime;
+            $grvkl_saaa->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
             $grvkl_saaa->shift = $request->shift;
             $grvkl_saaa->shk = $request->shk;
             $grvkl_saaa->apk = $request->apk;
@@ -401,7 +402,7 @@ class PageGrvklController extends Controller
         ]);
 
         $grvkl_smms = new \App\Grvkl_smms;
-        $grvkl_smms->datetime = $request->datetime;
+        $grvkl_smms->datetime = GregorianDateTime::toGregorianDateTime($request->datetime);
         $grvkl_smms->shift = $request->shift;
         $grvkl_smms->mng = $request->mng;
         $grvkl_smms->mt = $request->mt;
@@ -456,7 +457,7 @@ class PageGrvklController extends Controller
     
             $result = \App\Grvkl_sssn::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shift' => $request->shift,
                     'shk' => $request->shk,
                     's' => $request->s,
@@ -472,7 +473,7 @@ class PageGrvklController extends Controller
         } else if ($request->action == 'update_sskk'){
             $result = \App\Grvkl_sskk::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shift' => $request->shift,
                     'shk' => $request->shk,
                     'kvk' => $request->kvk,
@@ -496,7 +497,7 @@ class PageGrvklController extends Controller
         } else if ($request->action == 'update_saaa'){
             $result = \App\Grvkl_saaa::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shift' => $request->shift,
                     'shk' => $request->shk,
                     'apk' => $request->apk,
@@ -507,7 +508,7 @@ class PageGrvklController extends Controller
         } else if ($request->action == 'update_smms'){
             $result = \App\Grvkl_smms::where('id', $request->old_id)
                 ->update([
-                    'datetime' => $request->datetime,
+                    'datetime' => GregorianDateTime::toGregorianDateTime($request->datetime),
                     'shift' => $request->shift,
                     'mng' => $request->mng,
                     'mt' => $request->mt,
